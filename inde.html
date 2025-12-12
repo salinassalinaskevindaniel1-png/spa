@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto de Spa de Mascotas - Frontend Básico</title>
+    <link rel="stylesheet" href="css\estilos.css">
+</head>
+<body>
+
+    <main id="login-view" class="container active">
+        <h1>¡Bienvenido a PetCare Spa! 🐶🐱</h1>
+        <form id="login-form">
+            <h2>Iniciar Sesión</h2>
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required> 
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn primary">Entrar al Sistema</button>
+            <p id="login-message" class="error-message"></p>
+        </form>
+    </main>
+
+    <div id="system-container" class="hidden">
+        
+        <header id="navbar">
+            <nav class="container">
+                <a href="#" class="nav-link" data-module="dashboard">Inicio</a>
+                <a href="#" class="nav-link" data-module="registro">1. Registrar</a>
+                <a href="#" class="nav-link" data-module="agenda">2. Agendar</a>
+                <a href="#" class="nav-link" data-module="carrito">3. Tienda</a>
+                <button id="logout-btn" class="btn danger">Cerrar Sesión</button>
+            </nav>
+        </header>
+
+        <main id="main-content" class="container">
+            
+            <section id="dashboard" class="module active">
+                <h2>¡Sistema Activo!</h2>
+                <p>Usa la barra de navegación para empezar a registrar dueños, mascotas o agendar servicios.</p>
+            </section>
+
+            <section id="registro" class="module hidden">
+                <h2>📝 Módulo 1: Registro</h2>
+                
+                <div class="form-section">
+                    <h3>Formulario de Dueño (RF-R01)</h3>
+                    <form id="owner-form" class="dual-form">
+                        <div class="form-group">
+                            <label for="owner-name">Nombre Dueño:</label>
+                            <input type="text" id="owner-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="owner-phone">Teléfono:</label>
+                            <input type="tel" id="owner-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="owner-email">Correo (clave):</label>
+                            <input type="email" id="owner-email" required>
+                        </div>
+                        <button type="submit" class="btn success">Guardar Dueño</button>
+                    </form>
+                </div>
+
+                <div class="form-section">
+                    <h3>Formulario de Mascota (RF-R02)</h3>
+                    <form id="pet-form" class="dual-form">
+                        <div class="form-group">
+                            <label for="pet-name">Nombre Mascota:</label>
+                            <input type="text" id="pet-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pet-species">Especie:</label>
+                            <input type="text" id="pet-species" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pet-breed">Raza:</label>
+                            <input type="text" id="pet-breed" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pet-owner">Dueño (Email registrado):</label>
+                            <input type="email" id="pet-owner" required placeholder="Email del Dueño">
+                        </div>
+                        <button type="submit" class="btn success">Guardar Mascota</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="agenda" class="module hidden">
+                <h2>🗓️ Módulo 2: Agendar Servicio</h2>
+                <form id="agenda-form">
+                    <div class="form-group">
+                        <label for="agenda-date">Fecha:</label>
+                        <input type="date" id="agenda-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="agenda-time">Hora:</label>
+                        <input type="time" id="agenda-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="agenda-pet">Mascota (Nombre):</label>
+                        <input type="text" id="agenda-pet" required placeholder="Nombre de la mascota">
+                    </div>
+                    <div class="form-group">
+                        <label for="agenda-service">Servicio:</label>
+                        <select id="agenda-service" required>
+                            <option value="">-- Elige un servicio --</option>
+                            <option value="Corte de Pelo">Corte de Pelo</option>
+                            <option value="Baño Básico">Baño Básico</option>
+                            <option value="Revisión Veterinaria">Revisión Veterinaria</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn primary">¡Confirmar Cita!</button>
+                    <p id="agenda-message" class="info-message"></p>
+                </form>
+
+                <h3>Lista de Citas Agendadas (RF-A02)</h3>
+                <div id="agendados-list">
+                    <p>Cargando citas...</p>
+                </div>
+            </section>
+
+            <section id="carrito" class="module hidden">
+                <h2>🛒 Módulo 3: Tienda y Compras</h2>
+                
+                <h3>Nuestro Catálogo (Generado con JS)</h3>
+                <div id="catalogo-container" class="catalogo-grid">
+                    </div>
+
+                <h3>Tu Carrito (RF-C03)</h3>
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Producto/Servicio</th>
+                            <th>Precio Unitario</th>
+                            <th>Cantidad</th>
+                            <th>Total Ítem</th>
+                            <th>Quitar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items-body">
+                        </tbody>
+                </table>
+                
+                <div class="cart-totals">
+                    <p>Subtotal: <span id="cart-subtotal">$0.00</span></p>
+                    <p>IVA (19%): <span id="cart-tax">$0.00</span></p>
+                    <p class="total">Total Final: <span id="cart-total">$0.00</span></p>
+                    <button class="btn primary" id="checkout-btn">Pagar Ahora</button>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="otro.js"></script>
+</body>
+</html>
