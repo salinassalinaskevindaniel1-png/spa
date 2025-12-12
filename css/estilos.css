@@ -1,0 +1,232 @@
+/* Variables para colores (Fácil de cambiar) */
+:root {
+    --primary-color: #00897B; /* Verde Teal */
+    --secondary-color: #FFB300; /* Amarillo */
+    --danger-color: #E53935; /* Rojo */
+    --success-color: #43A047; /* Verde Oscuro */
+    --bg-light: #f7f7f7;
+    --bg-white: #ffffff;
+    --text-dark: #333;
+    --border-color: #ccc;
+    --padding-base: 15px;
+}
+
+/* Reset Básico para que se vea bien en todos los navegadores */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    width: 95%; /* Hacemos que ocupe más espacio */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--padding-base);
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* --- Botones Genéricos --- */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+.btn.primary { background-color: var(--primary-color); color: white; }
+.btn.primary:hover { background-color: #00695C; }
+
+.btn.danger { background-color: var(--danger-color); color: white; }
+.btn.danger:hover { background-color: #C62828; }
+
+.btn.success { background-color: var(--success-color); color: white; }
+.btn.success:hover { background-color: #388E3C; }
+
+
+/* --- Formularios --- */
+form {
+    background-color: var(--bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.form-section {
+    padding: 15px;
+    border: 1px dashed #BDBDBD; /* Estilo simple de borde dashed */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Estructura para Dueños y Mascotas - Responsivo */
+.dual-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+
+/* --- Control de Vistas --- */
+.hidden {
+    display: none !important;
+}
+
+.module {
+    padding: 20px 0;
+}
+
+/* Estilos de Login */
+#login-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+#login-form {
+    max-width: 350px;
+    width: 100%;
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+/* --- Navegación --- */
+#navbar {
+    background-color: var(--text-dark);
+}
+
+#navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: var(--primary-color);
+}
+
+
+/* --- Catálogo y Carrito --- */
+.catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.catalogo-item {
+    background-color: var(--bg-white);
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-align: center;
+}
+
+.catalogo-item .price {
+    font-size: 1.1em;
+    color: var(--danger-color);
+    margin: 8px 0;
+}
+
+#cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#cart-table th, #cart-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: left;
+}
+
+#cart-table th {
+    background-color: #E0F2F1; /* Color de fondo claro para headers */
+}
+
+.cart-totals {
+    background-color: #EFEBE9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.1em;
+}
+
+.cart-totals .total {
+    font-weight: bold;
+    color: var(--danger-color);
+    border-top: 2px solid #D7CCC8;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/* Media Query Simple (Responsividad para móviles) */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #navbar .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-link, #logout-btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
